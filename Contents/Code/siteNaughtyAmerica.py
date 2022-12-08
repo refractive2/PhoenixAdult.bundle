@@ -2,16 +2,6 @@ import PAsearchSites
 import PAutils
 
 
-def getAlgolia(url, indexName, params):
-    params = json.dumps({'requests': [{'indexName': indexName, 'params': params + '&hitsPerPage=100'}]})
-    headers = {
-        'Content-Type': 'application/json'
-    }
-    data = PAutils.HTTPRequest(url, headers=headers, params=params).json()
-
-    return data['results'][0]['hits']
-
-
 def getNaughtyAmerica(sceneID):
     re_image = re.compile(r'images\d+', re.IGNORECASE)
 
